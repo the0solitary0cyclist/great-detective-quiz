@@ -8,6 +8,7 @@
   <link href="styles/grid.css" rel="stylesheet" type="text/css" />
   <link href="styles/styles.css" rel="stylesheet" type="text/css" />
   <link href="styles/knocker.css" rel="stylesheet" type="text/css" />
+  <link href="styles/door.css" rel="stylesheet" type="text/css" />
 
 </head>
 
@@ -23,15 +24,14 @@
           about the great detective, his work and his companions?</h3>
         <h3>Will you be granted an audience with Holmes himself?</h3>
         <h2> Knock to test your wits.</h2>
-        <div class="doorKnocker">
+        <div id="start-game" class="doorKnocker">
         </div>
       </div>
     </div>
-    <div id="question-view">
+    <div id="game-view">
       <div class="col-4 left-panel">
         <div id="question">
           <p id="count">Question 1</p>
-          <h2 id="question-text">This is the text of the question</h2>
         </div>
         <div id="verification">
           <h3>Correct</h3>
@@ -48,17 +48,19 @@
         <form>
           <fieldset>
             <legend>Choose your answer</legend>
-            <input id="AnswerA" type="radio" name="chooseOne" value="AnswerA">
-            <label for="AnswerA">AnswerA</label><br>
-            <input id="AnswerB" type="radio" name="chooseOne" value="AnswerB">
-            <label for="AnswerB">AnswerB</label><br>
-            <input id="AnswerC" type="radio" name="chooseOne" value="AnswerC">
-            <label for="AnswerC">AnswerC</label><br>
-            <input id="AnswerD" type="radio" name="chooseOne" value="AnswerD">
-            <label for="AnswerD">AnswerD</label>
+            <input id="0" class="answer0" type="radio" name="chooseOne" value="AnswerA">
+            <label id="answer0" class="answer0" for="answer0">AnswerA</label><br>
+            <input id="1" type="radio" class="answer1" name="chooseOne" value="AnswerB">
+            <label id="answer1" class="answer1" for="answer1">AnswerB</label><br>
+            <input id="2" type="radio" class="answer2" name="chooseOne" value="AnswerC">
+            <label id="answer2" class="answer2" for="answer2">AnswerC</label><br>
+            <input id="3" type="radio" class="answer3" name="chooseOne" value="AnswerD">
+            <label id="answer3" class="answer3" for="answer3">AnswerD</label>
           </fieldset>
-          <button id='submit-answer' type='submit' name='submit-answer'>Submit</button>
+          <button id='submit-answer' type='submit' name='submit-answer'>Submit Answer</button>
         </form>
+        <button id='next-question' name='next-question'>Next Question</button>
+        <button id='view-final-score' name='view-final-score'>View Final Score</button>
       </div>
     </div>
     <div id="outro-view">
@@ -83,6 +85,8 @@
       </div>
     </div>
   </main>
+  <script src="http://code.jquery.com/jquery.min.js"></script>
+  <script src="dist/bundle.js"></script>
 </body>
 
 <footer role="footer" class="col-12">
