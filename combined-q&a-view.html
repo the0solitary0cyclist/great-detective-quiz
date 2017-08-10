@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>Holmes Quiz App</title>
+  <link href="styles/grid.css" rel="stylesheet" type="text/css" />
+  <link href="styles/styles.css" rel="stylesheet" type="text/css" />
+  <link href="styles/door.css" rel="stylesheet" type="text/css" />
+</head>
+
+<body class="col-12">
+  <header role="banner col-12">
+    The Great Detective Quiz
+  </header>
+
+  <main role="main" class="container">
+    <div id="outro-view">
+      <div class="col-4 left-panel">
+        <div id="question">
+          <p id="count">Question 1</p>
+          <h2 id="question-text">This is the text of the question</h2>
+        </div>
+        <div id="verification">
+          <h3>Correct</h3>
+          <div class="countdown">
+            <p>9 questions remain</p>
+          </div>
+        </div>
+      </div>
+      <div class="col-4 center-panel">
+        <div class="door" id="closed-door-img">
+        </div>
+      </div>
+      <div class="col-4 right-panel">
+        <form>
+          <fieldset>
+          <legend>Choose your answer</legend>
+            <input id="AnswerA" type="radio" name="chooseOne" value="AnswerA">
+            <label for="AnswerA">AnswerA</label><br>
+            <input id="AnswerB" type="radio" name="chooseOne" value="AnswerB">
+            <label for="AnswerB">AnswerB</label><br>
+            <input id="AnswerC" type="radio" name="chooseOne" value="AnswerC">
+            <label for="AnswerC">AnswerC</label><br>
+            <input id="AnswerD" type="radio" name="chooseOne" value="AnswerD">
+            <label for="AnswerD">AnswerD</label>
+          </fieldset>
+          <button id='submit-answer' type='submit' name='submit-answer'>Submit</button>
+        </form>
+      </div>
+    </div>
+  </main>
+</body>
+
+<footer role="footer" class="col-12">
+  <p>made by cgpacifico</p>
+</footer>
+
+</html>
