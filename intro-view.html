@@ -8,6 +8,7 @@
   <link href="styles/grid.css" rel="stylesheet" type="text/css" />
   <link href="styles/styles.css" rel="stylesheet" type="text/css" />
   <link href="styles/knocker.css" rel="stylesheet" type="text/css" />
+
 </head>
 
 <body class="col-12">
@@ -23,6 +24,61 @@
         <h3>Will you be granted an audience with Holmes himself?</h3>
         <h2> Knock to test your wits.</h2>
         <div class="doorKnocker">
+        </div>
+      </div>
+    </div>
+    <div id="question-view">
+      <div class="col-4 left-panel">
+        <div id="question">
+          <p id="count">Question 1</p>
+          <h2 id="question-text">This is the text of the question</h2>
+        </div>
+        <div id="verification">
+          <h3>Correct</h3>
+          <div class="countdown">
+            <p>9 questions remain</p>
+          </div>
+        </div>
+      </div>
+      <div class="col-4 center-panel">
+        <div class="door" id="closed-door-img">
+        </div>
+      </div>
+      <div class="col-4 right-panel">
+        <form>
+          <fieldset>
+            <legend>Choose your answer</legend>
+            <input id="AnswerA" type="radio" name="chooseOne" value="AnswerA">
+            <label for="AnswerA">AnswerA</label><br>
+            <input id="AnswerB" type="radio" name="chooseOne" value="AnswerB">
+            <label for="AnswerB">AnswerB</label><br>
+            <input id="AnswerC" type="radio" name="chooseOne" value="AnswerC">
+            <label for="AnswerC">AnswerC</label><br>
+            <input id="AnswerD" type="radio" name="chooseOne" value="AnswerD">
+            <label for="AnswerD">AnswerD</label>
+          </fieldset>
+          <button id='submit-answer' type='submit' name='submit-answer'>Submit</button>
+        </form>
+      </div>
+    </div>
+    <div id="outro-view">
+      <div class="col-4 left-panel">
+        <div id="score-view">
+          <h2>You answered X questions correctly</h2>
+        </div>
+        <div id="door-status">
+          <h2>Character answers the door</h2>
+        </div>
+      </div>
+      <div class="col-4 center-panel">
+        <div class="door" id="open-door-img">
+        </div>
+      </div>
+      <div class="col-4 right-panel">
+        <div id="character-response">
+          <p>"Mister Holmes is currently engaged in a rather malodorous scientific experiment- you'd best come back again,
+            later."</p>
+          <button class="reset">Play again</button>
         </div>
       </div>
     </div>
