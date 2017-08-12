@@ -1,6 +1,20 @@
 .doorKnocker {
-    height: 250px;
-    width: 150px;
-    background-color: gray;
+    height: 300px;
+    width: 200px;
+    /* background-color: gray; */
     margin: auto;
 }
+
+#knockerBack {
+    z-index: 0;
+  	max-width:100%;
+  	height:auto;
+}
+
+  #knockerFront {
+    z-index: 1;
+    position: relative;
+    bottom: 300px;
+    max-width: 100%;
+    height: auto;
+  }
