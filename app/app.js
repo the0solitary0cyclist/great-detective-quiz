@@ -58,8 +58,8 @@ function main() {
 
   function strikeIncorrect(correctAnswer) {
     $('label').addClass('incorrect')
-    $(`label[for=answer${correctAnswer}]`).removeClass('incorrect')
-    $(`label[for=answer${correctAnswer}]`).addClass('correct')
+    $(`label[for=${correctAnswer}]`).removeClass('incorrect')
+    $(`label[for=${correctAnswer}]`).addClass('correct')
     $('input:radio').hide()
     $('#submit-answer').hide()
     if (counter == 1) {

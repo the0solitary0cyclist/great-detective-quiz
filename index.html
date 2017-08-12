@@ -9,7 +9,7 @@
   <link href="styles/styles.css" rel="stylesheet" type="text/css" />
   <link href="styles/knocker.css" rel="stylesheet" type="text/css" />
   <link href="styles/door.css" rel="stylesheet" type="text/css" />
-
+  <link href="styles/answers.css" rel="stylesheet" type="text/css" />
 </head>
 
 <body class="col-12">
@@ -50,14 +50,32 @@
         <form>
           <fieldset>
             <legend>Choose your answer</legend>
-            <input id="0" class="answer0" type="radio" name="chooseOne" value="AnswerA">
-            <label id="answer0" class="answer0" for="answer0">AnswerA</label><br>
-            <input id="1" type="radio" class="answer1" name="chooseOne" value="AnswerB">
-            <label id="answer1" class="answer1" for="answer1">AnswerB</label><br>
-            <input id="2" type="radio" class="answer2" name="chooseOne" value="AnswerC">
-            <label id="answer2" class="answer2" for="answer2">AnswerC</label><br>
-            <input id="3" type="radio" class="answer3" name="chooseOne" value="AnswerD">
-            <label id="answer3" class="answer3" for="answer3">AnswerD</label>
+            <div class="radio-group">
+              <div class="answer">
+                <label for="0" class="radio-label">
+                  <input name="selectedAnswer" type="radio" id="0">
+                  <span id="answer0" class="inner-label">Answer A</span>
+               </label>
+              </div>
+              <div class="answer">
+                <label for="1" class="radio-label">
+                  <input name="selectedAnswer" type="radio" id="1">
+                  <span id="answer1" class="inner-label">Answer B</span>
+                </label>
+              </div>
+              <div class="answer">
+                <label for="2" class="radio-label">
+                  <input name="selectedAnswer" type="radio" id="2">
+                  <span id="answer2" class="inner-label">Answer C</span>
+               </label>
+              </div>
+              <div class="answer">
+                <label for="3" class="radio-label">
+                  <input name="selectedAnswer" type="radio" id="3">
+                  <span id="answer3" class="inner-label">Answer D</span>
+               </label>
+              </div>
+            </div>
           </fieldset>
           <button id='submit-answer' type='submit' name='submit-answer'>Submit Answer</button>
         </form>
