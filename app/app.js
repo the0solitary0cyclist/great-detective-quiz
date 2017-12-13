@@ -17,7 +17,7 @@ function main() {
     }
   }
 
-  var userGameClassInstance = new userGameClass();
+  var userGameClassInstance = new userGameClass()
 
   let scoreArray = []
   let currentScore
@@ -35,6 +35,7 @@ function main() {
     $('#answer1').text(quiz[i]['s'][1])
     $('#answer2').text(quiz[i]['s'][2])
     $('#answer3').text(quiz[i]['s'][3])
+    $('#answer4').text(quiz[i]['s'][4])
   }
 
 
@@ -57,6 +58,7 @@ function main() {
   }
 
   function strikeIncorrect(correctAnswer) {
+    $('legend').hide()
     $('label').addClass('incorrect')
     $(`label[for=${correctAnswer}]`).removeClass('incorrect')
     $(`label[for=${correctAnswer}]`).addClass('correct')
@@ -78,6 +80,7 @@ function main() {
   function getQuestionView(counter) {
     if (counter >= 0) {
       $('#game-view').show()
+      $('legend').show()
       $('#intro-view').hide()
       $('#outro-view').hide()
       cleanUpPrevious()
@@ -93,8 +96,20 @@ function main() {
     const update = truthiness ? 'correct' : 'incorrect'
     $('#verification').children('h3').text(`Your answer is ${update}.`)
     $('#verification').children('h2').text(`Your current score is ${currentScore}.`)
-    $('#verification').children('.countdown').text(`${counter-1} questions remain.`)
+    $('#verification').children('.countdown').text(pluralizeCountdown(counter))
     $('#verification').show()
+  }
+
+  function pluralizeCountdown(counter){
+    if ((counter-1) == 1) {
+      return `1 question remains.`
+    }
+    else if((counter-1) == 0) {
+      return `That was the final question.`
+    }
+    else {
+      return `${counter-1} questions remain.`
+    }
   }
 
   function getOutroView(currentScore) {
@@ -108,12 +123,15 @@ function main() {
     if (currentScore > 3) {
       $('.door-closed').attr('background', 'url(.images/MrHolmes.jpg')
       $('#door-status').children('h2').text('Mr. Holmes opens the door.')
+      $('#character-response').text("Hullo! I was badly in need of a case, and this looks, from the state of your shoes, as if it were of importance. Do come inside. The game is afoot!")
     } else if (currentScore > 2) {
-      $('.door-closed').attr('background', 'url(./images/MrsHudson.jpg')
-      $('#door-status').children('h2').text('Mr. Holmes opens the door.')
-    } else if (currentScore > 0) {
       $('.door-closed').attr('background', 'url(./images/DrWatson.jpg')
       $('#door-status').children('h2').text('Dr. Watson opens the door.')
+      $('#character-response').text("Holmes is scraping upon his violin. Yours may be the case he has been longing for.")
+    } else if (currentScore > 0) {
+      $('.door-closed').attr('background', 'url(./images/MrsHudson.jpg')
+      $('#door-status').children('h2').text('Mrs. Hudson opens the door.')
+      $('#character-response').text("Mister Holmes is currently engaged in a rather malodorous scientific experiment- you'd best come back again, later.")
     } else if (currentScore === 0) {
       $('#score-view').children('h2').text(`You answered no questions correctly.`)
       $('#door-status').children('h2').text('It seems no one is at home.')

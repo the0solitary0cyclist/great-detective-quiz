@@ -99,28 +99,29 @@ function getCorrectAnswer(counter, quiz) {
 
 const quiz =[
   {
-    q: 'foo1',
-    s: ['foo1A','foo1B','foo1C','foo1D'],
+    q: 'Irene Adler was',
+    s: ['a French heiress', 'an American opera singer', 'an Italian window', 'a Greek interpreter', 'a British spy'],
     a: 1,
   },
   {
-    q: 'foo2',
-    s: ['foo2A','foo2B','foo2C','foo2D'],
+
+    q: 'Which of these women does not appear in the Holmes stories?',
+    s: ['Violet Hunter', 'Violet Smith','Violet Blackwood', 'Violet de Merville', 'Violet Westbury'],
     a: 2
   },
   {
-    q: 'foo3',
-    s: ['foo3A','foo3B','foo3C','foo3D'],
+    q: 'Which of these is not among Holmes’ many disguises?',
+    s: ['An Italian priest', 'An elderly woman', 'A plumber', 'A soliciter', 'A sea captain'],
     a: 3
   },
   {
-    q: 'foo4',
-    s: ['foo4A','foo4B','foo4C','foo4D'],
-    a: 0
+    q: 'Which  Sherlock Holmes story takes place on Christmas day?',
+    s: ['The Adventure of the Abbey Grange', 'The Adventure of the Bruce-Partington Plans', 'The Adventure of the Noble Bachelor', 'The Adventure of the Blue Carbuncle', 'something else'],
+    a: 3
   },
   {
-    q: 'foo5',
-    s: ['foo5A','foo5B','foo5C','foo5D'],
+    q: 'Who never saw Mr. Holmes without a disguise?',
+s: ['The King of Bohemia', 'Irene Adler', 'The Norfolk Builder', 'Mrs. Hudson', 'Professor Moriarty'],
     a: 1
   }
 ]
@@ -155,7 +156,7 @@ function main() {
     }
   }
 
-  var userGameClassInstance = new userGameClass();
+  var userGameClassInstance = new userGameClass()
 
   let scoreArray = []
   let currentScore
@@ -173,6 +174,7 @@ function main() {
     $('#answer1').text(quiz[i]['s'][1])
     $('#answer2').text(quiz[i]['s'][2])
     $('#answer3').text(quiz[i]['s'][3])
+    $('#answer4').text(quiz[i]['s'][4])
   }
 
 
@@ -195,6 +197,7 @@ function main() {
   }
 
   function strikeIncorrect(correctAnswer) {
+    $('legend').hide()
     $('label').addClass('incorrect')
     $(`label[for=${correctAnswer}]`).removeClass('incorrect')
     $(`label[for=${correctAnswer}]`).addClass('correct')
@@ -216,6 +219,7 @@ function main() {
   function getQuestionView(counter) {
     if (counter >= 0) {
       $('#game-view').show()
+      $('legend').show()
       $('#intro-view').hide()
       $('#outro-view').hide()
       cleanUpPrevious()
@@ -231,8 +235,20 @@ function main() {
     const update = truthiness ? 'correct' : 'incorrect'
     $('#verification').children('h3').text(`Your answer is ${update}.`)
     $('#verification').children('h2').text(`Your current score is ${currentScore}.`)
-    $('#verification').children('.countdown').text(`${counter-1} questions remain.`)
+    $('#verification').children('.countdown').text(pluralizeCountdown(counter))
     $('#verification').show()
+  }
+
+  function pluralizeCountdown(counter){
+    if ((counter-1) == 1) {
+      return `1 question remains.`
+    }
+    else if((counter-1) == 0) {
+      return `That was the final question.`
+    }
+    else {
+      return `${counter-1} questions remain.`
+    }
   }
 
   function getOutroView(currentScore) {
@@ -246,12 +262,15 @@ function main() {
     if (currentScore > 3) {
       $('.door-closed').attr('background', 'url(.images/MrHolmes.jpg')
       $('#door-status').children('h2').text('Mr. Holmes opens the door.')
+      $('#character-response').text("Hullo! I was badly in need of a case, and this looks, from the state of your shoes, as if it were of importance. Do come inside. The game is afoot!")
     } else if (currentScore > 2) {
-      $('.door-closed').attr('background', 'url(./images/MrsHudson.jpg')
-      $('#door-status').children('h2').text('Mr. Holmes opens the door.')
-    } else if (currentScore > 0) {
       $('.door-closed').attr('background', 'url(./images/DrWatson.jpg')
       $('#door-status').children('h2').text('Dr. Watson opens the door.')
+      $('#character-response').text("Holmes is scraping upon his violin. Yours may be the case he has been longing for.")
+    } else if (currentScore > 0) {
+      $('.door-closed').attr('background', 'url(./images/MrsHudson.jpg')
+      $('#door-status').children('h2').text('Mrs. Hudson opens the door.')
+      $('#character-response').text("Mister Holmes is currently engaged in a rather malodorous scientific experiment- you'd best come back again, later.")
     } else if (currentScore === 0) {
       $('#score-view').children('h2').text(`You answered no questions correctly.`)
       $('#door-status').children('h2').text('It seems no one is at home.')

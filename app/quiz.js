@@ -1,28 +1,29 @@
 
 export const quiz =[
   {
-    q: 'foo1',
-    s: ['foo1A','foo1B','foo1C','foo1D'],
+    q: 'Irene Adler was',
+    s: ['a French heiress', 'an American opera singer', 'an Italian window', 'a Greek interpreter', 'a British spy'],
     a: 1,
   },
   {
-    q: 'foo2',
-    s: ['foo2A','foo2B','foo2C','foo2D'],
+
+    q: 'Which of these women does not appear in the Holmes stories?',
+    s: ['Violet Hunter', 'Violet Smith','Violet Blackwood', 'Violet de Merville', 'Violet Westbury'],
     a: 2
   },
   {
-    q: 'foo3',
-    s: ['foo3A','foo3B','foo3C','foo3D'],
+    q: 'Which of these is not among Holmes’ many disguises?',
+    s: ['An Italian priest', 'An elderly woman', 'A plumber', 'A soliciter', 'A sea captain'],
     a: 3
   },
   {
-    q: 'foo4',
-    s: ['foo4A','foo4B','foo4C','foo4D'],
-    a: 0
+    q: 'Which  Sherlock Holmes story takes place on Christmas day?',
+    s: ['The Adventure of the Abbey Grange', 'The Adventure of the Bruce-Partington Plans', 'The Adventure of the Noble Bachelor', 'The Adventure of the Blue Carbuncle', 'something else'],
+    a: 3
   },
   {
-    q: 'foo5',
-    s: ['foo5A','foo5B','foo5C','foo5D'],
+    q: 'Who never saw Mr. Holmes without a disguise?',
+s: ['The King of Bohemia', 'Irene Adler', 'The Norfolk Builder', 'Mrs. Hudson', 'Professor Moriarty'],
     a: 1
   }
 ]
