@@ -28,3 +28,60 @@ fieldset {
 .correct {
   font-size: 24px;
 }
+
+
+
+@font-face {
+  font-family: 'VictorianParlor';
+  /* src: url('myfont.woff2') format('woff2'), url('myfont.woff') format('woff'), url('myfont.ttf') format('truetype'); */
+  src: url('../images/VictorianParlor.ttf') format('truetype')
+}
+
+@font-face {
+  font-family: 'PrincesS AND THE FROG';
+  src: url('../images/PrincesS AND THE FROG.ttf') format('truetype')
+}
+
+@font-face {
+  font-family: 'HenryMorganHand';
+  src: url('../images/HenryMorganHand.ttf') format('truetype')
+}
+
+@font-face {
+  font-family: 'England';
+  src: url('../images/england.ttf') format('truetype')
+}
+
+@font-face {
+  font-family: 'Ugly';
+  src: url('../images/UglyQua-Italic.ttf') format('truetype')
+}
+
+@font-face {
+  font-family: 'Victoriana';
+  src: url('../images/Victoriana.ttf') format('truetype')
+}
+
+header {
+  font-size: 75px;
+  font-family: 'Victoriana',
+  Fallback,
+  serif;
+}
+
+h2 {
+  font-family: 'Alice',
+  serif;
+}
+
+h3, label {
+font-family: 'Raleway',
+sans-serif;
+font-size: 18px;
+}
+
+/*Fonts
+ src: url('../england.ttf') format('truetype')*/
+    /*src: url('Victoriana.ttf') format('truetype')*/
+/*    src: url('garto16.ttf') format('truetype')
+*/

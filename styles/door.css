@@ -5,6 +5,8 @@
   width: 700px;
   height: 700px;
   -webkit-perspective: 450;
+/*  position: relative;
+  margin: auto;*/
 }
 
 .frame {
@@ -51,3 +53,6 @@
   background: url(../images/HolmesFrame.jpg);
   background-repeat: no-repeat;
 }
+
+
+/*https://codepen.io/anon/pen/PEqeJp*/
