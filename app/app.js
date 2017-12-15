@@ -96,7 +96,9 @@ function main() {
     const update = truthiness ? 'correct' : 'incorrect'
     $('#verification').children('h3').text(`Your answer is ${update}.`)
     $('#verification').children('h2').text(`Your current score is ${currentScore}.`)
-    $('#verification').children('.countdown').text(pluralizeCountdown(counter))
+    // want
+    $('#question').children('#count').text(pluralizeCountdown(counter))
+    // $('#verification').children('.countdown').text(pluralizeCountdown(counter))
     $('#verification').show()
   }
 
@@ -118,23 +120,44 @@ function main() {
     determineOutro(currentScore)
   }
 
+  function openDoor(el) {
+    setTimeout(function(){
+      el.addClass("thumbOpened")
+    }, 1100)
+  }
+
   function determineOutro(currentScore) {
-    $('#score-view').children('h2').text(`You answered ${currentScore} questions correctly.`)
-    if (currentScore > 3) {
-      // $('.door-closed').attr('background', 'url(.images/MrHolmes.jpg')
+    if (currentScore == 5 ){
+      $('#score-view').children('h2').text(`You answered all questions correctly.`)
+    }
+    else if (currentScore == 1 ){
+      $('#score-view').children('h2').text(`You answered 1 question correctly.`)
+    }
+    else {
+      $('#score-view').children('h2').text(`You answered ${currentScore} questions correctly.`)
+    }
+
+    if (currentScore > 4) {
+      $('#door-panel').addClass('thumb')
       $('.door').addClass('holmes')
       $('#door-status').children('h2').text('Mr. Holmes opens the door.')
       $('#character-response').text("Hullo! I was badly in need of a case, and this looks, from the state of your shoes, as if it were of importance. Do come inside. The game is afoot!")
+      var door = $('.thumb')
+      openDoor(door)
     } else if (currentScore > 2) {
-      // $('.door-closed').attr('background', 'url(./images/DrWatson.jpg')
+      $('#door-panel').addClass('thumb')
       $('.door').addClass('watson')
       $('#door-status').children('h2').text('Dr. Watson opens the door.')
       $('#character-response').text("Holmes is scraping upon his violin. Yours may be the case he has been longing for.")
+      var door = $('.thumb')
+      openDoor(door)
     } else if (currentScore > 0) {
-      //$('.door-closed').attr('background', 'url(./images/MrsHudson.jpg')
+      $('#door-panel').addClass('thumb')
       $('.door').addClass('hudson')
       $('#door-status').children('h2').text('Mrs. Hudson opens the door.')
       $('#character-response').text("Mister Holmes is currently engaged in a rather malodorous scientific experiment- you'd best come back again, later.")
+      var door = $('.thumb')
+      openDoor(door)
     } else if (currentScore === 0) {
       $('#score-view').children('h2').text(`You answered no questions correctly.`)
       $('#door-status').children('h2').text('It seems no one is at home.')

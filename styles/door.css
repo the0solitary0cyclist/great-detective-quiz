@@ -9,25 +9,11 @@
   margin: auto;*/
 }
 
-.frame {
-/*  background: url(../images/closedDoor.jpg);*/
- /* background: url(../images/frame.jpg);*/
- /* background-repeat: no-repeat;*/
-  width: 700px;
-  height: 700px;
-  -webkit-perspective: 450;
-}
-/*.closed {
-  background: url(../images/closedDoor.jpg);
-  background: url(../images/frame.jpg);
-  background-repeat: no-repeat;
-}*/
-
 .thumb {
   background: url(../images/doorWithKnob.jpg);
   background-repeat: no-repeat;
   position: relative;
-  left: 118px;
+  left: 105px;
   top: 113px;
   width: 400px;
   height: 500px;
@@ -36,6 +22,7 @@
 
 .thumbOpened {
   transform: rotateY(-90deg);
+  /*transition: .5s linear;*/
   transition: .5s linear;
 }
 
