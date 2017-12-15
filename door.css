@@ -1,0 +1,26 @@
+.perspective {
+  background: url(frame.jpg);
+  background-repeat: no-repeat;
+  width: 700px;
+  height: 700px;
+  -webkit-perspective: 450;
+}
+
+.thumb {
+  background: url(doorWithKnob.jpg);
+  background-repeat: no-repeat;
+  position: relative;
+  left: 118px;
+  top: 113px;
+  width: 400px;
+  height: 500px;
+  transform-origin: left;
+}
+
+.thumbOpened {
+  transform: rotateY(-90deg);
+/*  transform-origin: 8px;*/
+  transition: .5s linear;
+}
+
+/*when class is added or removed it animates between the two states*/

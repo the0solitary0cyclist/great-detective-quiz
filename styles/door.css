@@ -1,6 +1,53 @@
 .door {
-  height: 250px;
-  width: 150px;
-  background-color: blue;
-  margin: auto;
+  background: url(../images/closedDoor.jpg);
+ /* background: url(../images/frame.jpg);*/
+  background-repeat: no-repeat;
+  width: 700px;
+  height: 700px;
+  -webkit-perspective: 450;
+}
+
+.frame {
+/*  background: url(../images/closedDoor.jpg);*/
+ /* background: url(../images/frame.jpg);*/
+ /* background-repeat: no-repeat;*/
+  width: 700px;
+  height: 700px;
+  -webkit-perspective: 450;
+}
+/*.closed {
+  background: url(../images/closedDoor.jpg);
+  background: url(../images/frame.jpg);
+  background-repeat: no-repeat;
+}*/
+
+.thumb {
+  background: url(../images/doorWithKnob.jpg);
+  background-repeat: no-repeat;
+  position: relative;
+  left: 118px;
+  top: 113px;
+  width: 400px;
+  height: 500px;
+  transform-origin: left;
+}
+
+.thumbOpened {
+  transform: rotateY(-90deg);
+  transition: .5s linear;
+}
+
+.hudson {
+  background: url(../images/HudsonFrame.jpg);
+  background-repeat: no-repeat;
+}
+
+.watson {
+  background: url(../images/WatsonFrame.jpg);
+  background-repeat: no-repeat;
+}
+
+.holmes {
+  background: url(../images/HolmesFrame.jpg);
+  background-repeat: no-repeat;
 }

@@ -218,7 +218,7 @@ function main() {
 
   function getQuestionView(counter) {
     if (counter >= 0) {
-      $('#game-view').show()
+      $('#play-view').show()
       $('legend').show()
       $('#intro-view').hide()
       $('#outro-view').hide()
@@ -260,15 +260,18 @@ function main() {
   function determineOutro(currentScore) {
     $('#score-view').children('h2').text(`You answered ${currentScore} questions correctly.`)
     if (currentScore > 3) {
-      $('.door-closed').attr('background', 'url(.images/MrHolmes.jpg')
+      // $('.door-closed').attr('background', 'url(.images/MrHolmes.jpg')
+      $('.door').addClass('holmes')
       $('#door-status').children('h2').text('Mr. Holmes opens the door.')
       $('#character-response').text("Hullo! I was badly in need of a case, and this looks, from the state of your shoes, as if it were of importance. Do come inside. The game is afoot!")
     } else if (currentScore > 2) {
-      $('.door-closed').attr('background', 'url(./images/DrWatson.jpg')
+      // $('.door-closed').attr('background', 'url(./images/DrWatson.jpg')
+      $('.door').addClass('watson')
       $('#door-status').children('h2').text('Dr. Watson opens the door.')
       $('#character-response').text("Holmes is scraping upon his violin. Yours may be the case he has been longing for.")
     } else if (currentScore > 0) {
-      $('.door-closed').attr('background', 'url(./images/MrsHudson.jpg')
+      //$('.door-closed').attr('background', 'url(./images/MrsHudson.jpg')
+      $('.door').addClass('hudson')
       $('#door-status').children('h2').text('Mrs. Hudson opens the door.')
       $('#character-response').text("Mister Holmes is currently engaged in a rather malodorous scientific experiment- you'd best come back again, later.")
     } else if (currentScore === 0) {
