@@ -62,9 +62,24 @@ fieldset {
   src: url('../images/Victoriana.ttf') format('truetype')
 }
 
+@font-face {
+  font-family: 'Longdon';
+  src: url('../images/longdon_.ttf') format('truetype')
+}
+
+@font-face {
+  font-family: 'Calligraffiti';
+  src: url('../images/Calligraffiti.ttf') format('truetype')
+}
+
+@font-face {
+  font-family: 'Garto';
+  src: url('../images/garto16.ttf') format('truetype')
+}
+
 header {
   font-size: 75px;
-  font-family: 'Victoriana',
+  font-family: 'Garto',
   Fallback,
   serif;
 }
