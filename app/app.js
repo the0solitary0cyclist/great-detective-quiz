@@ -79,6 +79,7 @@ function main() {
 
   function getQuestionView(counter) {
     if (counter >= 0) {
+      $('.door-frame').hide()
       $('#play-view').show()
       $('legend').show()
       $('#intro-view').hide()
@@ -102,15 +103,15 @@ function main() {
     $('#verification').show()
   }
 
-  function pluralizeCountdown(counter){
-    if ((counter-1) == 1) {
+  function pluralizeCountdown(counter) {
+    if ((counter - 1) == 1) {
       return `1 question remains.`
     }
-    else if((counter-1) == 0) {
+    else if ((counter - 1) == 0) {
       return `That was the final question.`
     }
     else {
-      return `${counter-1} questions remain.`
+      return `${counter - 1} questions remain.`
     }
   }
 
@@ -121,16 +122,16 @@ function main() {
   }
 
   function openDoor(el) {
-    setTimeout(function(){
+    setTimeout(function () {
       el.addClass("thumbOpened")
     }, 1100)
   }
 
   function determineOutro(currentScore) {
-    if (currentScore == 5 ){
+    if (currentScore == 5) {
       $('#score-view').children('h2').text(`You answered all questions correctly.`)
     }
-    else if (currentScore == 1 ){
+    else if (currentScore == 1) {
       $('#score-view').children('h2').text(`You answered 1 question correctly.`)
     }
     else {
@@ -138,22 +139,25 @@ function main() {
     }
 
     if (currentScore > 4) {
+      $('#closed-door-img').remove()
       $('#door-panel').addClass('thumb')
-      $('.door').addClass('holmes')
+      $('.door-frame').show().addClass('holmes')
       $('#door-status').children('h2').text('Mr. Holmes opens the door.')
       $('#character-response').text("Hullo! I was badly in need of a case, and this looks, from the state of your shoes, as if it were of importance. Do come inside. The game is afoot!")
       var door = $('.thumb')
       openDoor(door)
     } else if (currentScore > 2) {
+      $('#closed-door-img').remove()
       $('#door-panel').addClass('thumb')
-      $('.door').addClass('watson')
+      $('.door-frame').show().addClass('watson')
       $('#door-status').children('h2').text('Dr. Watson opens the door.')
       $('#character-response').text("Holmes is scraping upon his violin. Yours may be the case he has been longing for.")
       var door = $('.thumb')
       openDoor(door)
     } else if (currentScore > 0) {
+      $('#closed-door-img').remove()
       $('#door-panel').addClass('thumb')
-      $('.door').addClass('hudson')
+      $('.door-frame').show().addClass('hudson')
       $('#door-status').children('h2').text('Mrs. Hudson opens the door.')
       $('#character-response').text("Mister Holmes is currently engaged in a rather malodorous scientific experiment- you'd best come back again, later.")
       var door = $('.thumb')
@@ -218,7 +222,7 @@ function main() {
   })
 
 
-/// here be dragons
+  /// here be dragons
 }
 
 
