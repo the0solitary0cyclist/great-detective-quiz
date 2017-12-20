@@ -165,15 +165,10 @@ function main() {
     }
   }
 
-  function getAnswerView(truthiness, correctAnswer, currentScore) {
+  function getAnswerView(correctAnswer, currentScore) {
     strikeIncorrect(correctAnswer)
-    const update = truthiness ? 'correct' : 'incorrect'
-    $('#verification').children('h3').text(`Your answer is ${update}.`)
-    $('#verification').children('h2').text(`Your current score is ${currentScore}.`)
-    // want
-    $('#question').children('#count').text(pluralizeCountdown(counter))
-    // $('#verification').children('.countdown').text(pluralizeCountdown(counter))
-    $('#verification').show()
+    let answerViewText = `Your current score is ${currentScore}   –   ${pluralizeCountdown(counter)}`
+    $('#question').children('#count').text(answerViewText)
   }
 
   function pluralizeCountdown(counter) {
@@ -264,14 +259,15 @@ function main() {
     const truthiness = verifyUserAnswer(correctAnswer)
     scoreArray.push(truthiness)
     const currentScore = Object(__WEBPACK_IMPORTED_MODULE_1__gameHelpers__["b" /* tallyScore */])(scoreArray)
-    getAnswerView(truthiness, correctAnswer, currentScore)
+    getAnswerView(correctAnswer, currentScore)
     console.log('current score', currentScore)
     return currentScore
   })
 
 
   $('#next-question').click(event => {
-    $('#verification').hide()
+    // $('#verification').hide()
+    userGameClassInstance.setUserAnswer(undefined)
     counter--
     if (counter > 1) {
       getQuestionView(counter)
