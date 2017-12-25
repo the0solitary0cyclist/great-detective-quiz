@@ -10,19 +10,19 @@
   	height:auto;
 }
 
-  #knockerFront {
-    z-index: 1;
-    position: relative;
-    bottom: 300px;
-    max-width: 100%;
-    height: auto;
-  }
+#knockerFront {
+  z-index: 1;
+  position: relative;
+  bottom: 300px;
+  max-width: 100%;
+  height: auto;
+}
 
-  .knocked {
-    transform: rotateX(-20deg);
-    transform-origin: top;
-    transition: .5s linear;
-  }
+.knocked {
+  transform: rotateX(-20deg);
+  transform-origin: top;
+  transition: .5s linear;
+}
 
 
-  
+

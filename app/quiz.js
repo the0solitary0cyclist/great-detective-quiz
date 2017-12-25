@@ -6,7 +6,6 @@ export const quiz =[
     a: 1,
   },
   {
-
     q: 'Which of these women does not appear in the Holmes stories?',
     s: ['Violet Hunter', 'Violet Smith','Violet Blackwood', 'Violet de Merville', 'Violet Westbury'],
     a: 2

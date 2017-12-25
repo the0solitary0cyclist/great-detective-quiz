@@ -123,7 +123,6 @@ s: ['The King of Bohemia', 'Irene Adler', 'The Norfolk Builder', 'Mrs. Hudson', 
 /* harmony export (immutable) */ __webpack_exports__["a"] = quiz;
 
 
-
 /***/ }),
 /* 2 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
@@ -138,7 +137,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 function main() {
 
   function userGameClass() {
-    var _state = {
+    let _state = {
       scoreArray: [],
       currentScore: 0,
       userAnswer: undefined
@@ -326,7 +325,7 @@ function main() {
     counter--
     if (counter >= 1) {
       getQuestionView(counter)
-    } 
+    }
   })
 
   $('#view-final-score').click(event => {
@@ -341,11 +340,20 @@ function main() {
   })
 }
 
+function knockAndEnter() {
+    $('#knockerFront').addClass('knocked')
+    console.log('The game is afoot!')
+    setTimeout(() => main(), 1600)
+}
+
 $('#start-game').click(e => {
   e.preventDefault()
-  $('#knockerFront').addClass('knocked')
-  console.log('The game is afoot!')
-  setTimeout(() => main(), 2000)
+  knockAndEnter()
+})
+
+$('#start-game').keypress( e => {
+  e.preventDefault()
+   if (e.which == 13) knockAndEnter()
 })
 
 
