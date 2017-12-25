@@ -6,9 +6,9 @@
 /******/ 	function __webpack_require__(moduleId) {
 /******/
 /******/ 		// Check if module is in cache
-/******/ 		if(installedModules[moduleId]) {
+/******/ 		if(installedModules[moduleId])
 /******/ 			return installedModules[moduleId].exports;
-/******/ 		}
+/******/
 /******/ 		// Create a new module (and put it into the cache)
 /******/ 		var module = installedModules[moduleId] = {
 /******/ 			i: moduleId,
@@ -32,6 +32,9 @@
 /******/
 /******/ 	// expose the module cache
 /******/ 	__webpack_require__.c = installedModules;
+/******/
+/******/ 	// identity function for calling harmony imports with the correct context
+/******/ 	__webpack_require__.i = function(value) { return value; };
 /******/
 /******/ 	// define getter function for harmony exports
 /******/ 	__webpack_require__.d = function(exports, name, getter) {
@@ -60,7 +63,7 @@
 /******/ 	__webpack_require__.p = "";
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 0);
+/******/ 	return __webpack_require__(__webpack_require__.s = 2);
 /******/ })
 /************************************************************************/
 /******/ ([
@@ -68,9 +71,67 @@
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
+/* harmony export (immutable) */ __webpack_exports__["b"] = tallyScore;
+/* harmony export (immutable) */ __webpack_exports__["a"] = getCorrectAnswer;
+function tallyScore(scoreArray) {
+  return scoreArray.filter(function (x) {
+    return x == true
+  }).length
+}
+
+function getCorrectAnswer(counter, quiz) {
+  const i = counter - 1
+  const correctAnswer = quiz[i]['a']
+  return correctAnswer
+}
+
+
+/***/ }),
+/* 1 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+
+const quiz =[
+  {
+    q: 'Irene Adler was...',
+    s: ['...a French heiress', '...an American opera singer', '...an Italian window', '...a Greek interpreter', '...a British spy'],
+    a: 1,
+  },
+  {
+
+    q: 'Which of these women does not appear in the Holmes stories?',
+    s: ['Violet Hunter', 'Violet Smith','Violet Blackwood', 'Violet de Merville', 'Violet Westbury'],
+    a: 2
+  },
+  {
+    q: 'Which of these is not among Holmes’ many disguises?',
+    s: ['An Italian priest', 'An elderly woman', 'A plumber', 'A soliciter', 'A sea captain'],
+    a: 3
+  },
+  {
+    q: 'Which  Sherlock Holmes story takes place on Christmas day?',
+    s: ['The Adventure of the Abbey Grange', 'The Adventure of the Three Gables', 'The Adventure of the Noble Bachelor', 'The Adventure of the Blue Carbuncle', 'The Adventure of Black Peter'],
+    a: 3
+  },
+  {
+    q: 'Who never saw Mr. Holmes without a disguise?',
+s: ['The King of Bohemia', 'Irene Adler', 'The Norfolk Builder', 'Mrs. Hudson', 'Professor Moriarty'],
+    a: 1
+  }
+]
+/* harmony export (immutable) */ __webpack_exports__["a"] = quiz;
+
+
+
+/***/ }),
+/* 2 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__quiz__ = __webpack_require__(1);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__gameHelpers__ = __webpack_require__(2);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__gameHelpers__ = __webpack_require__(0);
 
 
 
@@ -99,10 +160,10 @@ function main() {
   let counter = __WEBPACK_IMPORTED_MODULE_0__quiz__["a" /* quiz */].length
 
   function newQuestion(counter, quiz) {
-    console.log('question number', counter)
     var i = counter - 1
     var count = quiz.length - counter + 1
-    $('#count').text(`Question ${count}`)
+    $('#scoring').empty()
+    $('#count').text(`Question ${count}`).show()
     $('#question').append(`<h3 class="question${i}" question">${quiz[i]['q']}</h3>`)
     $('#answer0').text(quiz[i]['s'][0])
     $('#answer1').text(quiz[i]['s'][1])
@@ -110,7 +171,6 @@ function main() {
     $('#answer3').text(quiz[i]['s'][3])
     $('#answer4').text(quiz[i]['s'][4])
   }
-
 
   function verifyUserAnswer(correctAnswer) {
     const userAnswer = userGameClassInstance.getUserAnswer()
@@ -147,12 +207,9 @@ function main() {
   }
 
 
-  //getView helper functions
-
-
+  // getView helper functions
   function getQuestionView(counter) {
     if (counter >= 0) {
-      $('.door-frame').hide()
       $('#play-view').show()
       $('legend').show()
       $('#intro-view').hide()
@@ -160,15 +217,15 @@ function main() {
       cleanUpPrevious()
       $('#submit-answer').show()
       newQuestion(counter, __WEBPACK_IMPORTED_MODULE_0__quiz__["a" /* quiz */])
-    } else {
-      console.log('now is not the time for a new Q')
     }
   }
 
   function getAnswerView(correctAnswer, currentScore) {
     strikeIncorrect(correctAnswer)
-    let answerViewText = `Your current score is ${currentScore}   –   ${pluralizeCountdown(counter)}`
-    $('#question').children('#count').text(answerViewText)
+    let score = `Your current score is ${currentScore}.`
+    let countdown = `${pluralizeCountdown(counter)}`
+    $('#count').hide()
+    $('#scoring').prepend(`<div>${score}<br/>${countdown}</div>`).show()
   }
 
   function pluralizeCountdown(counter) {
@@ -255,113 +312,41 @@ function main() {
 
   $('#submit-answer').click(event => {
     event.preventDefault();
-    const correctAnswer = Object(__WEBPACK_IMPORTED_MODULE_1__gameHelpers__["a" /* getCorrectAnswer */])(counter, __WEBPACK_IMPORTED_MODULE_0__quiz__["a" /* quiz */])
+    const correctAnswer = __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_1__gameHelpers__["a" /* getCorrectAnswer */])(counter, __WEBPACK_IMPORTED_MODULE_0__quiz__["a" /* quiz */])
     const truthiness = verifyUserAnswer(correctAnswer)
     scoreArray.push(truthiness)
-    const currentScore = Object(__WEBPACK_IMPORTED_MODULE_1__gameHelpers__["b" /* tallyScore */])(scoreArray)
+    const currentScore = __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_1__gameHelpers__["b" /* tallyScore */])(scoreArray)
     getAnswerView(correctAnswer, currentScore)
-    console.log('current score', currentScore)
     return currentScore
   })
 
 
   $('#next-question').click(event => {
-    // $('#verification').hide()
     userGameClassInstance.setUserAnswer(undefined)
     counter--
-    if (counter > 1) {
+    if (counter >= 1) {
       getQuestionView(counter)
-    } else if (counter === 1) {
-      getQuestionView(counter)
-      console.log('i think this is the last q')
-    } else {
-      console.log('do something', counter)
-    }
+    } 
   })
 
   $('#view-final-score').click(event => {
-    const currentScore = Object(__WEBPACK_IMPORTED_MODULE_1__gameHelpers__["b" /* tallyScore */])(scoreArray)
+    const currentScore = __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_1__gameHelpers__["b" /* tallyScore */])(scoreArray)
     getOutroView(currentScore)
   })
 
   $('.reset').click(e => {
-    window.location.reload(true);
+    window.location.reload(true)
     scoreArray = []
     counter = 0
   })
-
-
-  /// here be dragons
 }
-
 
 $('#start-game').click(e => {
+  e.preventDefault()
+  $('#knockerFront').addClass('knocked')
   console.log('The game is afoot!')
-  main()
+  setTimeout(() => main(), 2000)
 })
-
-
-/***/ }),
-/* 1 */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-
-const quiz =[
-  {
-    q: 'Irene Adler was',
-    s: ['a French heiress', 'an American opera singer', 'an Italian window', 'a Greek interpreter', 'a British spy'],
-    a: 1,
-  },
-  {
-
-    q: 'Which of these women does not appear in the Holmes stories?',
-    s: ['Violet Hunter', 'Violet Smith','Violet Blackwood', 'Violet de Merville', 'Violet Westbury'],
-    a: 2
-  },
-  {
-    q: 'Which of these is not among Holmes’ many disguises?',
-    s: ['An Italian priest', 'An elderly woman', 'A plumber', 'A soliciter', 'A sea captain'],
-    a: 3
-  },
-  {
-    q: 'Which  Sherlock Holmes story takes place on Christmas day?',
-    s: ['The Adventure of the Abbey Grange', 'The Adventure of the Bruce-Partington Plans', 'The Adventure of the Noble Bachelor', 'The Adventure of the Blue Carbuncle', 'something else'],
-    a: 3
-  },
-  {
-    q: 'Who never saw Mr. Holmes without a disguise?',
-s: ['The King of Bohemia', 'Irene Adler', 'The Norfolk Builder', 'Mrs. Hudson', 'Professor Moriarty'],
-    a: 1
-  }
-]
-/* harmony export (immutable) */ __webpack_exports__["a"] = quiz;
-
-
-
-/***/ }),
-/* 2 */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-/* harmony export (immutable) */ __webpack_exports__["b"] = tallyScore;
-/* harmony export (immutable) */ __webpack_exports__["a"] = getCorrectAnswer;
-// function scoreKeeper(score) {
-//   console.log(`Your current score is ${score} - ${num} questions remain.`)
-// }
-
-function tallyScore(scoreArray) {
-  return scoreArray.filter(function (x) {
-    return x == true
-  }).length
-}
-
-function getCorrectAnswer(counter, quiz) {
-  const i = counter - 1
-  const correctAnswer = quiz[i]['a']
-  console.log('correct answer', correctAnswer)
-  return correctAnswer
-}
 
 
 /***/ })

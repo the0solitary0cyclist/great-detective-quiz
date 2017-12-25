@@ -1,7 +1,6 @@
 .doorKnocker {
     height: 300px;
     width: 200px;
-    /* background-color: gray; */
     margin: auto;
 }
 
@@ -18,3 +17,12 @@
     max-width: 100%;
     height: auto;
   }
+
+  .knocked {
+    transform: rotateX(-20deg);
+    transform-origin: top;
+    transition: .5s linear;
+  }
+
+
+  

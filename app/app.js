@@ -26,10 +26,10 @@ function main() {
   let counter = quiz.length
 
   function newQuestion(counter, quiz) {
-    console.log('question number', counter)
     var i = counter - 1
     var count = quiz.length - counter + 1
-    $('#count').text(`Question ${count}`)
+    $('#scoring').empty()
+    $('#count').text(`Question ${count}`).show()
     $('#question').append(`<h3 class="question${i}" question">${quiz[i]['q']}</h3>`)
     $('#answer0').text(quiz[i]['s'][0])
     $('#answer1').text(quiz[i]['s'][1])
@@ -37,7 +37,6 @@ function main() {
     $('#answer3').text(quiz[i]['s'][3])
     $('#answer4').text(quiz[i]['s'][4])
   }
-
 
   function verifyUserAnswer(correctAnswer) {
     const userAnswer = userGameClassInstance.getUserAnswer()
@@ -74,10 +73,9 @@ function main() {
   }
 
 
-  //getView helper functions
+  // getView helper functions
   function getQuestionView(counter) {
     if (counter >= 0) {
-      $('.door-frame').hide()
       $('#play-view').show()
       $('legend').show()
       $('#intro-view').hide()
@@ -85,15 +83,15 @@ function main() {
       cleanUpPrevious()
       $('#submit-answer').show()
       newQuestion(counter, quiz)
-    } else {
-      console.log('now is not the time for a new Q')
     }
   }
 
   function getAnswerView(correctAnswer, currentScore) {
     strikeIncorrect(correctAnswer)
-    let answerViewText = `Your current score is ${currentScore}   –   ${pluralizeCountdown(counter)}`
-    $('#question').children('#count').text(answerViewText)
+    let score = `Your current score is ${currentScore}.`
+    let countdown = `${pluralizeCountdown(counter)}`
+    $('#count').hide()
+    $('#scoring').prepend(`<div>${score}<br/>${countdown}</div>`).show()
   }
 
   function pluralizeCountdown(counter) {
@@ -185,7 +183,6 @@ function main() {
     scoreArray.push(truthiness)
     const currentScore = tallyScore(scoreArray)
     getAnswerView(correctAnswer, currentScore)
-    console.log('current score', currentScore)
     return currentScore
   })
 
@@ -193,14 +190,9 @@ function main() {
   $('#next-question').click(event => {
     userGameClassInstance.setUserAnswer(undefined)
     counter--
-    if (counter > 1) {
+    if (counter >= 1) {
       getQuestionView(counter)
-    } else if (counter === 1) {
-      getQuestionView(counter)
-      console.log('i think this is the last q')
-    } else {
-      console.log('do something', counter)
-    }
+    } 
   })
 
   $('#view-final-score').click(event => {
@@ -209,17 +201,15 @@ function main() {
   })
 
   $('.reset').click(e => {
-    window.location.reload(true);
+    window.location.reload(true)
     scoreArray = []
     counter = 0
   })
-
-
-  /// here be dragons
 }
 
-
 $('#start-game').click(e => {
+  e.preventDefault()
+  $('#knockerFront').addClass('knocked')
   console.log('The game is afoot!')
-  main()
+  setTimeout(() => main(), 2000)
 })

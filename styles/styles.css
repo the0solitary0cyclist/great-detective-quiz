@@ -1,75 +1,88 @@
- #play-view, #outro-view {
+#play-view, #outro-view {
   display: none
 }
 
- #verification, #next-question, #view-final-score{
-   display: none
- }
+.door-frame, #next-question, #view-final-score{
+  display: none
+}
+
+header {
+  font-size: 70px;
+  font-family: 'Garto', Fallback, serif;
+  margin-bottom: 30px;
+}
 
 body {
   background-color: #0f1b26;
   color: white;
 }
 
-header {
-  font-size: 42px;
-  margin-bottom: 30px;
+footer a {
+  color: white;
 }
 
-fieldset {
-  /* text-align: left; */
+footer {
+  margin-top: 40px;
+}
+
+#intro-view h3{
+  font-family: 'Playfair+Display', sans-serif;
+  font-size: 26px;
+  font-weight: 200;
+}
+
+#intro-view h2 {
+  margin-top: 42px;
+  font-family: 'Playfair+Display', sans-serif;
+  font-size: 32px;
+  font-weight: 400;
+}
+
+#game-view h3{
+  font-family: 'Playfair+Display', sans-serif;
+  font-size: 20px;
+  font-weight: 500;
+}
+
+#game-view label{
+  font-family: 'Playfair+Display', sans-serif;
+  font-size: 18px;
+  font-weight: 200;
+}
+
+#game-view #count, #scoring, legend{
+  font-family: 'Garto', Fallback, serif;
+  font-size: 22px;
+  letter-spacing: 1.5px;
+}
+
+#game-view fieldset {
   border: none;
+  margin-right: 15px;
 }
 
-.incorrect {
+#game-view .incorrect {
   text-decoration: line-through;
 }
 
-.correct {
-  font-size: 24px;
+#game-view .correct {
+  font-size: 20px;
+  font-weight: 470;
 }
 
-
-
-@font-face {
-  font-family: 'VictorianParlor';
-  /* src: url('myfont.woff2') format('woff2'), url('myfont.woff') format('woff'), url('myfont.ttf') format('truetype'); */
-  src: url('../images/VictorianParlor.ttf') format('truetype')
+#outro-view #character-response {
+  margin-top: 40px;
+  margin-bottom: 30px;
+  font-family: 'Garto';
+  font-style: italic;
+  font-size: 28px;
+  line-height: 110%;
 }
 
-@font-face {
-  font-family: 'PrincesS AND THE FROG';
-  src: url('../images/PrincesS AND THE FROG.ttf') format('truetype')
-}
-
-@font-face {
-  font-family: 'HenryMorganHand';
-  src: url('../images/HenryMorganHand.ttf') format('truetype')
-}
-
-@font-face {
-  font-family: 'England';
-  src: url('../images/england.ttf') format('truetype')
-}
-
-@font-face {
-  font-family: 'Ugly';
-  src: url('../images/UglyQua-Italic.ttf') format('truetype')
-}
-
-@font-face {
-  font-family: 'Victoriana';
-  src: url('../images/Victoriana.ttf') format('truetype')
-}
-
-@font-face {
-  font-family: 'Longdon';
-  src: url('../images/longdon_.ttf') format('truetype')
-}
-
-@font-face {
-  font-family: 'Calligraffiti';
-  src: url('../images/Calligraffiti.ttf') format('truetype')
+#outro-view h2{
+  font-family: 'Playfair+Display', sans-serif;
+  font-size: 26px;
+  font-weight: 300;
 }
 
 @font-face {
@@ -77,26 +90,23 @@ fieldset {
   src: url('../images/garto16.ttf') format('truetype')
 }
 
-header {
-  font-size: 75px;
-  font-family: 'Garto',
-  Fallback,
-  serif;
+@media(max-width:835px) {
+  .radio-group {
+    margin-left: 20%;
+  }
 }
 
-h2 {
-  font-family: 'Alice',
-  serif;
+@media(max-width:500px) {
+  .radio-group {
+    margin-left: auto;
+  }
 }
 
-h3, label {
-font-family: 'Raleway',
-sans-serif;
-font-size: 18px;
+/* TODO */
+@media(max-width:407px) {
+  .radio-group {
+    font-size: 10px !important;
+    color: green;
+  }
 }
 
-/*Fonts
- src: url('../england.ttf') format('truetype')*/
-    /*src: url('Victoriana.ttf') format('truetype')*/
-/*    src: url('garto16.ttf') format('truetype')
-*/

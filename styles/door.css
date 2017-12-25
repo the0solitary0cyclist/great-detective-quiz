@@ -1,38 +1,11 @@
-
 .door-frame {
   width: 386px;
   height: 500px;
   margin: auto;
 }
 
-
-.door {
-  /* background: url(../images/closedDoor.jpg);
- /* background: url(../images/frame.jpg);*/
-  /* background-repeat: no-repeat; */
-  /* display: block;
-  position: absolute; */
-
-  /* display: block;
-  margin-right: 10px;
-  margin-left: 10px; */
-
-  /* flex solution ?
-  display:flex;
-  justify-content:center;
-  align-items:flex-end; */
-
-  /* <div style="display:table;width:50%;">
-  <div style="display:table-cell;vertical-align:bottom;">
-    <div style="margin-left:auto;margin-right:auto;height:525px;"></div> */
-
-  height: 525px;
-  -webkit-perspective: 450;
-
-}
-
 .thumb {
-  background: url(../images/doorWithKnob.jpg);
+  background: url(../images/doorFront.jpg);
   background-repeat: no-repeat;
   position: relative;
   left: 105px;
@@ -44,7 +17,6 @@
 
 .thumbOpened {
   transform: rotateY(-90deg);
-  /*transition: .5s linear;*/
   transition: .5s linear;
 }
 
@@ -62,6 +34,3 @@
   background: url(../images/HolmesFrame.jpg);
   background-repeat: no-repeat;
 }
-
-
-/*https://codepen.io/anon/pen/PEqeJp*/

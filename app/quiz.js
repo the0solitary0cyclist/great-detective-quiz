@@ -1,8 +1,8 @@
 
 export const quiz =[
   {
-    q: 'Irene Adler was',
-    s: ['a French heiress', 'an American opera singer', 'an Italian window', 'a Greek interpreter', 'a British spy'],
+    q: 'Irene Adler was...',
+    s: ['...a French heiress', '...an American opera singer', '...an Italian window', '...a Greek interpreter', '...a British spy'],
     a: 1,
   },
   {
@@ -18,7 +18,7 @@ export const quiz =[
   },
   {
     q: 'Which  Sherlock Holmes story takes place on Christmas day?',
-    s: ['The Adventure of the Abbey Grange', 'The Adventure of the Bruce-Partington Plans', 'The Adventure of the Noble Bachelor', 'The Adventure of the Blue Carbuncle', 'something else'],
+    s: ['The Adventure of the Abbey Grange', 'The Adventure of the Three Gables', 'The Adventure of the Noble Bachelor', 'The Adventure of the Blue Carbuncle', 'The Adventure of Black Peter'],
     a: 3
   },
   {
