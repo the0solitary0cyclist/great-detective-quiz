@@ -102,11 +102,12 @@ footer {
   }
 }
 
-/* TODO */
 @media(max-width:407px) {
-  .radio-group {
-    font-size: 10px !important;
-    color: green;
+  label.correct span.inner-label {
+    font-size: 18px;
+  }
+  label.incorrect span.inner-label{
+    font-size: 16px;
   }
 }
 

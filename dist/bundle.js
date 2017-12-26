@@ -99,7 +99,6 @@ const quiz =[
     a: 1,
   },
   {
-
     q: 'Which of these women does not appear in the Holmes stories?',
     s: ['Violet Hunter', 'Violet Smith','Violet Blackwood', 'Violet de Merville', 'Violet Westbury'],
     a: 2
@@ -121,6 +120,7 @@ s: ['The King of Bohemia', 'Irene Adler', 'The Norfolk Builder', 'Mrs. Hudson', 
   }
 ]
 /* harmony export (immutable) */ __webpack_exports__["a"] = quiz;
+
 
 
 /***/ }),
@@ -185,7 +185,8 @@ function main() {
     $('#question').children('h3').hide()
     $('label').removeClass('incorrect')
     $('label').removeClass('correct')
-    $('input:radio').show()
+    $( "input:radio" ).prop("disabled", false)
+    // $('input:radio').show()
     $('#next-question').hide()
   }
 
@@ -194,7 +195,7 @@ function main() {
     $('label').addClass('incorrect')
     $(`label[for=${correctAnswer}]`).removeClass('incorrect')
     $(`label[for=${correctAnswer}]`).addClass('correct')
-    $('input:radio').hide()
+    $( "input:radio" ).prop("disabled", true)
     $('#submit-answer').hide()
     if (counter == 1) {
       $('#submit-answer').hide()

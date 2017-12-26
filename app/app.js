@@ -52,7 +52,7 @@ function main() {
     $('#question').children('h3').hide()
     $('label').removeClass('incorrect')
     $('label').removeClass('correct')
-    $('input:radio').show()
+    $( "input:radio" ).prop("disabled", false)
     $('#next-question').hide()
   }
 
@@ -61,7 +61,7 @@ function main() {
     $('label').addClass('incorrect')
     $(`label[for=${correctAnswer}]`).removeClass('incorrect')
     $(`label[for=${correctAnswer}]`).addClass('correct')
-    $('input:radio').hide()
+    $( "input:radio" ).prop("disabled", true)
     $('#submit-answer').hide()
     if (counter == 1) {
       $('#submit-answer').hide()
@@ -163,7 +163,6 @@ function main() {
   }
 
   // gameplay
-
   getQuestionView(counter)
 
   function parseUserAnswer(event) {
