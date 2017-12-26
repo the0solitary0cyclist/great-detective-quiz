@@ -186,7 +186,6 @@ function main() {
     $('label').removeClass('incorrect')
     $('label').removeClass('correct')
     $( "input:radio" ).prop("disabled", false)
-    // $('input:radio').show()
     $('#next-question').hide()
   }
 
@@ -297,7 +296,6 @@ function main() {
   }
 
   // gameplay
-
   getQuestionView(counter)
 
   function parseUserAnswer(event) {
