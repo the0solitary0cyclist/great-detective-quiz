@@ -2,7 +2,7 @@
 export const quiz =[
   {
     q: 'Irene Adler was...',
-    s: ['...a French heiress', '...an American opera singer', '...an Italian window', '...a Greek interpreter', '...a British spy'],
+    s: ['...a French heiress', '...an American opera singer', '...an Italian widow', '...a Greek interpreter', '...a British spy'],
     a: 1,
   },
   {
