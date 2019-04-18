@@ -16,8 +16,8 @@ export const quiz =[
     a: 3
   },
   {
-    q: 'Which  Sherlock Holmes story takes place on Christmas day?',
-    s: ['The Adventure of the Abbey Grange', 'The Adventure of the Three Gables', 'The Adventure of the Noble Bachelor', 'The Adventure of the Blue Carbuncle', 'The Adventure of Black Peter'],
+    q: 'Which  Sherlock Holmes story takes place on Christmas day? \n The Adventure of...',
+    s: ['...the Abbey Grange', '...the Three Gables', '...the Noble Bachelor', '...the Blue Carbuncle', '...Black Peter'],
     a: 3
   },
   {
