@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <title>The Great Detective Quiz App</title>
+    <link href="styles/grid.css" rel="stylesheet" type="text/css" />
+    <link href="styles/styles.css" rel="stylesheet" type="text/css" />
+    <link href="styles/form.css" rel="stylesheet" type="text/css" />
+    <link href="styles/door.css" rel="stylesheet" type="text/css" />
+    <link href="styles/buttons.css" rel="stylesheet" type="text/css" />
+    <link href="https://fonts.googleapis.com/css?family=Playfair+Display" rel="stylesheet">
+
+</head>
+
+<body class="col-12">
+    <header role="banner" class="col-12">
+        <h1>The Great Detective Quiz</h1>
+    </header>
+    <main role="main" class="container">
+        <div id="game-view">
+            <div id="left-panel" class="col-6">
+                <div id="closed-door">
+                    <img src="./images/closedDoor.jpg" role="img" id="closed-door-img" alt="The closed door to number 221 Baker Street, London." />
+                </div>
+                <div id="open-door" style="display: none">
+                    <div id="character-door-frame" role="img">
+                        <div id="door-front">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div id="right-panel" class="col-6">
+                <div id="question">
+                    <div class="info">
+                        <h2 id="current-question-number"></h2>
+                        <img class="decorative" aria-hidden="true" src="images/filigree.png">
+                        <div id="answer-view" style="display: none">
+                            <div id="answer-evaluation"></div>
+                            <div id="questions-remaining"></div>
+                        </div>
+                    </div>
+
+                    <form role="form">
+                        <fieldset>
+                            <legend><h2 id="current-question" isAccessibilityElement="true"></h2></legend>
+                            <div class="radio-group" role="radiogroup" aria-activedescendant="answer0" aria-labelledby="current-question" tabindex="0">
+                                <div class="answer">
+                                    <label for="0" class="radio-label">
+                                        <input name="selectedAnswer" type="radio" id="0" role="radio"  aria-checked="false">
+                                        <span id="answer0" class="inner-label"></span>
+                                    </label>
+                                </div>
+                                <div class="answer">
+                                    <label for="1" class="radio-label">
+                                        <input name="selectedAnswer" type="radio" id="1" role="radio"  aria-checked="false">
+                                        <span id="answer1" class="inner-label"></span>
+                                    </label>
+                                </div>
+                                <div class="answer">
+                                    <label for="2" class="radio-label">
+                                        <input name="selectedAnswer" type="radio" id="2" role="radio"  aria-checked="false">
+                                        <span id="answer2" class="inner-label"></span>
+                                    </label>
+                                </div>
+                                <div class="answer">
+                                    <label for="3" class="radio-label">
+                                        <input name="selectedAnswer" type="radio" id="3" role="radio"  aria-checked="false">
+                                        <span id="answer3" class="inner-label"></span>
+                                    </label>
+                                </div>
+                                <div class="answer">
+                                    <label for="4" class="radio-label">
+                                        <input name="selectedAnswer" type="radio" id="4" role="radio"  aria-checked="false">
+                                        <span id="answer4" class="inner-label"></span>
+                                    </label>
+                                </div>
+                            </div>
+                        </fieldset>
+                        <button id="submit-answer" type="submit" name="submit-answer">Submit Answer</button>
+                        <button id="next-question" type="button" role="navigation" name="next-question" style="display: none">Next Question</button>
+                        <button id="view-final-score" name="view-final-score" style="display: none">View Final Score</button>
+                    </form>
+
+                </div>
+                <div id="outro-view" style="display:none">
+                    <div id=outro-text>
+                        <div class="info">
+                            <div id="final-score"></div>
+                            <div id="door-status"></div>
+                        </div>
+                        <div id="character-response">
+                            <img class="decorative" aria-hidden="true" src="images/filigree.png">
+                            <div id="character-response-text"></div>
+                        </div>
+                    </div>
+                    <button class="reset">Play Again</button>
+                </div>
+            </div>
+        </div>
+    </main>
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"
+        integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+    <script src="index.js"></script>
+</body>
+
+<footer role="contentinfo" class="col-12">
+    <p>made by <a href="https://github.com/cgpacifico" target="_blank">cgpacifico</a></p>
+</footer>
+
+</html>

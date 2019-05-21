@@ -1,0 +1,75 @@
+:root {
+    font-size: 16px;
+}
+
+body {
+    background-color: #0f1b26;
+    color: white;
+}
+
+header h1 {
+    color: #cf8830;
+    font-size: 4.375rem;
+    font-family: 'Garto', Fallback, serif;
+    margin-top: 1.25rem;
+    margin-bottom: 1.875rem;
+}
+
+@font-face {
+    font-family: 'Garto';
+    src: url(../images/garto16.ttf) format('truetype')
+}
+
+.info {
+    height: 6.25rem;
+    font-family: 'Garto', Fallback, serif;
+    font-size: 1.5rem;
+}
+
+footer {
+    color: white;
+    font-family: 'Playfair+Display', sans-serif;
+    font-size: 1.125rem;
+    font-weight: 200;
+}
+
+footer a {
+    color: white;
+    font-family: 'Playfair+Display', sans-serif;
+    font-size: 1.125rem;
+    font-weight: 400;
+}
+
+#current-question-number {
+    font-size: 1.563rem;
+    margin: .5em;
+}
+
+#answer-evaluation {
+    font-style: italic;
+}
+
+.decorative {
+    max-width: 50%;
+    text-align: center;
+    -webkit-filter: invert(51%) sepia(91%) saturate(401%) hue-rotate(354deg) brightness(95%) contrast(84%);
+    filter: invert(51%) sepia(91%) saturate(401%) hue-rotate(354deg) brightness(95%) contrast(84%);
+}
+
+/* #outro-view {
+    font-family: 'Playfair+Display', sans-serif;
+    font-size: 1.5rem;
+    font-weight: 200;
+} */
+
+#character-response {
+    font-family: 'Playfair+Display', sans-serif;
+    height: 12.5rem;
+    font-size: 1.25rem;
+    font-style: italic;
+}
+
+#character-response-text {
+    line-height: 2rem;
+    margin-top: 5%;
+}

@@ -1,0 +1,38 @@
+
+
+#character-door-frame {
+    width: 386px;
+    height: 500px;
+    margin: auto;
+}
+
+.holmes {
+    background: url(../images/holmesFrame.jpg);
+    background-repeat: no-repeat;
+}
+
+.watson {
+    background: url(../images/watsonFrame.jpg);
+    background-repeat: no-repeat;
+}
+
+.hudson {
+    background: url(../images/hudsonFrame.jpg);
+    background-repeat: no-repeat;
+}
+
+#door-front {
+    background: url(../images/doorFront.jpg);
+    background-repeat: no-repeat;
+    position: relative;
+    left: 105px;
+    top: 113px;
+    width: 400px;
+    height: 500px;
+    transform-origin: left;
+}
+
+.swing-open {
+    transform: rotateY(-90deg);
+    transition: .5s linear;
+}
