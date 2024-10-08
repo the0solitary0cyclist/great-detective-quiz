@@ -1,74 +1,30 @@
-daemon off;
-worker_processes auto;
+worker_processes 1;
 
 events {
-  use epoll;
-  accept_mutex on;
-  worker_connections 512;
+  worker_connections 1024;
 }
 
 http {
-  gzip on;
-  gzip_comp_level 6;
-  gzip_min_length 512;
-  gzip_types text/plain text/css application/json application/x-javascript text/xml application/xml application/xml+rss text/javascript;
-  gzip_vary on;
-  gzip_proxied any;
+  include       mime.types;
+  default_type  application/octet-stream;
 
-  server_tokens off;
-
-
-  access_log logs/access.log;
-
-
-
-  error_log stderr error;
-
-
-  include mime.types;
-  default_type application/octet-stream;
-  sendfile on;
-
-  #Must read the body in 5 seconds.
-  client_body_timeout 5;
+  sendfile        on;
+  keepalive_timeout  65;
 
   server {
-    listen 33920 reuseport;
-    charset UTF-8;
-    port_in_redirect off;
-    keepalive_timeout 5;
-    root site;
+    listen <%= ENV["PORT"] %>;  # Heroku dynamically sets the port
 
+    server_name _;  # Catch all server name
 
+    # Set the root directory to the current directory where your HTML and JS files are
+    root <%= ENV["HOME"] %>;
 
+    # Serve index.html by default
+    index index.html;
 
-
+    # Serve static files directly
     location / {
-      mruby_post_read_handler /app/bin/config/lib/ngx_mruby/headers.rb cache;
-      mruby_set $fallback /app/bin/config/lib/ngx_mruby/routes_fallback.rb cache;
-
-      try_files $uri $uri/ $fallback;
-
+      try_files $uri $uri/ =404;
     }
-
-
-
-
-
-
-
-
-
-  # need this b/c setting $fallback to =404 will try #{root}=404 instead of returning a 404
-  location @404 {
-    return 404;
-  }
-
-  # fallback proxy named match
-
-
-  # fallback redirects named match
-
-
   }
 }
